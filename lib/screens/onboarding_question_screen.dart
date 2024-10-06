@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hostpool/blocs/onboarding_event.dart';
 import 'package:hostpool/blocs/onboarding_state.dart';
-import '../blocs/onboarding_bloc.dart';
+import 'package:hostpool/blocs/onboarding_bloc.dart';
 import 'package:hostpool/widgets/audio_video_recorder.dart';
 import 'package:hostpool/widgets/audio_video_playback.dart';
 
@@ -22,15 +22,13 @@ class OnboardingQuestionScreen extends StatelessWidget {
             appBar: AppBar(
               elevation: 0,
               leading: IconButton(
-                icon: Icon(Icons.arrow_back, color: Colors.white),
+                icon:const Icon(Icons.arrow_back, color: Colors.white),
                 onPressed: () => Navigator.pop(context),
               ),
-              actions: [
+              actions:const  [
                 IconButton(
-                  icon: Icon(Icons.close, color: Colors.white),
-                  onPressed: () {
-                    // Handle close action
-                  },
+                  icon:const Icon(Icons.close, color: Colors.white),
+                  onPressed:null
                 ),
               ],
             ),
@@ -143,7 +141,7 @@ class OnboardingQuestionScreen extends StatelessWidget {
                             onPressed: null,
                             child: const Row(
                               mainAxisSize: MainAxisSize.min,
-                              children: const [
+                              children:  [
                                 Text(
                                   'Next',
                                   style: TextStyle(

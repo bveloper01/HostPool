@@ -36,5 +36,12 @@ class OnboardingState extends Equatable {
   }
 
   @override
-  List<Object?> get props => [answer, audioRecorded, audioPath, videoRecorded, videoPath, isNextEnabled];
+  List<Object?> get props => [
+        answer,
+        audioRecorded,
+        audioPath,
+        videoRecorded,
+        videoPath,
+        isNextEnabled
+      ];
 }

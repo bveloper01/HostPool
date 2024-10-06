@@ -33,5 +33,6 @@ class ExperienceState extends Equatable {
   }
 
   @override
-  List<Object?> get props => [experiences, selectedExperiences, description, isLoading, error];
+  List<Object?> get props =>
+      [experiences, selectedExperiences, description, isLoading, error];
 }

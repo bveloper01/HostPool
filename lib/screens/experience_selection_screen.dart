@@ -187,10 +187,12 @@ class ExperienceSelectionScreen extends StatelessWidget {
                             ),
                             child: ElevatedButton(
                               onPressed: () {
-  print('Selected Experiences: ${state.selectedExperiences}');
-  print('Description: ${state.description}');
-  Navigator.pushNamed(context, '/onboarding_question');
-},
+                                print(
+                                    'Selected Experiences: ${state.selectedExperiences}');
+                                print('Description: ${state.description}');
+                                Navigator.pushNamed(
+                                    context, '/onboarding_question');
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.transparent,
                                 foregroundColor: Colors.white,
@@ -205,7 +207,7 @@ class ExperienceSelectionScreen extends StatelessWidget {
                               ),
                               child: const Row(
                                 mainAxisSize: MainAxisSize.min,
-                                children: const [
+                                children: [
                                   Text(
                                     'Next',
                                     style: TextStyle(

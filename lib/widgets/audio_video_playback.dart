@@ -125,7 +125,7 @@ class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
       ..initialize().then((_) {
         setState(() {});
         _controller.addListener(_onVideoCompleted);
-        _controller.setLooping(false); // Set looping to false
+        _controller.setLooping(false); 
       });
   }
 
@@ -149,7 +149,7 @@ class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
       await _controller.pause();
     } else {
       await _controller.play();
-      _controller.setLooping(false); // Set looping to false
+      _controller.setLooping(false); 
     }
     setState(() {
       _isPlaying = !_isPlaying;

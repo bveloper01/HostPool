@@ -3,7 +3,7 @@ import 'package:hostpool/blocs/onboarding_event.dart';
 import 'package:hostpool/blocs/onboarding_state.dart';
 
 class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
-  OnboardingBloc() : super(OnboardingState()) {
+  OnboardingBloc() : super(const OnboardingState()) {
     on<UpdateAnswer>(_onUpdateAnswer);
     on<RecordAudio>(_onRecordAudio);
     on<StopAudioRecording>(_onStopAudioRecording);
@@ -16,15 +16,15 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
   void _onUpdateAnswer(UpdateAnswer event, Emitter<OnboardingState> emit) {
     emit(state.copyWith(
       answer: event.answer,
-      isNextEnabled: event.answer.isNotEmpty || state.audioRecorded || state.videoRecorded,
+      isNextEnabled:
+          event.answer.isNotEmpty || state.audioRecorded || state.videoRecorded,
     ));
   }
 
-  void _onRecordAudio(RecordAudio event, Emitter<OnboardingState> emit) {
-    // Implement audio recording logic
-  }
+  void _onRecordAudio(RecordAudio event, Emitter<OnboardingState> emit) {}
 
-  void _onStopAudioRecording(StopAudioRecording event, Emitter<OnboardingState> emit) {
+  void _onStopAudioRecording(
+      StopAudioRecording event, Emitter<OnboardingState> emit) {
     emit(state.copyWith(
       audioRecorded: true,
       audioPath: event.path,
@@ -48,18 +48,14 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
     ));
   }
 
+  void _onRecordVideo(RecordVideo event, Emitter<OnboardingState> emit) {}
 
-  void _onRecordVideo(RecordVideo event, Emitter<OnboardingState> emit) {
-    // Implement video recording logic
-  }
-
-  void _onStopVideoRecording(StopVideoRecording event, Emitter<OnboardingState> emit) {
+  void _onStopVideoRecording(
+      StopVideoRecording event, Emitter<OnboardingState> emit) {
     emit(state.copyWith(
       videoRecorded: true,
       videoPath: event.path,
       isNextEnabled: true,
     ));
   }
-
- 
 }

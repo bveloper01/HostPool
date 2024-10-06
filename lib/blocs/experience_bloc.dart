@@ -7,7 +7,7 @@ import 'package:hostpool/blocs/experience_state.dart';
 class ExperienceBloc extends Bloc<ExperienceEvent, ExperienceState> {
   final ExperienceApi _api;
 
-  ExperienceBloc(this._api) : super(ExperienceState()) {
+  ExperienceBloc(this._api) : super(const ExperienceState()) {
     on<FetchExperiences>(_onFetchExperiences);
     on<SelectExperience>(_onSelectExperience);
     on<DeselectExperience>(_onDeselectExperience);
