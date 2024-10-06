@@ -18,7 +18,7 @@ class ExperienceCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.only(right: 16   , bottom: 8, top: 8),
+        margin: const EdgeInsets.only(right: 16, bottom: 8, top: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           image: DecorationImage(

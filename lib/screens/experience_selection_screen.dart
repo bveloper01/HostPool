@@ -106,7 +106,7 @@ class ExperienceSelectionScreen extends StatelessWidget {
                         maxLength: 250,
                         decoration: InputDecoration(
                           contentPadding: const EdgeInsets.all(20),
-                          hintText: '/Describe your perfect hotspot...',
+                          hintText: '/Describe your perfect hotspot',
                           hintStyle: TextStyle(color: Colors.grey[600]),
                           filled: true,
                           fillColor: Colors.grey[900],
@@ -188,12 +188,10 @@ class ExperienceSelectionScreen extends StatelessWidget {
                             ),
                             child: ElevatedButton(
                               onPressed: () {
-                                print(
-                                    'Selected Experiences: ${state.selectedExperiences}');
-                                print('Description: ${state.description}');
-                                Navigator.pushNamed(
-                                    context, '/onboarding_question');
-                              },
+  print('Selected Experiences: ${state.selectedExperiences}');
+  print('Description: ${state.description}');
+  Navigator.pushNamed(context, '/onboarding_question');
+},
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.transparent,
                                 foregroundColor: Colors.white,

@@ -3,11 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hostpool/blocs/experience_bloc.dart';
 import 'package:hostpool/blocs/experience_event.dart';
+import 'package:hostpool/blocs/onboarding_bloc.dart';
 import 'package:hostpool/screens/experience_selection_screen.dart';
 import 'package:hostpool/screens/onboarding_question_screen.dart';
 import 'package:hostpool/services/experience_api_service.dart';
 
-void main() async{
+void main() async {
   await dotenv.load(fileName: '.env');
   runApp(HostPool());
 }
@@ -34,7 +35,10 @@ class HostPool extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => const ExperienceSelectionScreen(),
-          '/onboarding_question': (context) => OnboardingQuestionScreen(),
+          '/onboarding_question': (context) => BlocProvider(
+                create: (context) => OnboardingBloc(),
+                child: const OnboardingQuestionScreen(),
+              ),
         },
       ),
     );
