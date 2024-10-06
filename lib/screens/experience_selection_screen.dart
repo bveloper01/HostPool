@@ -133,7 +133,6 @@ class ExperienceSelectionScreen extends StatelessWidget {
                     ),
                     state.description.isEmpty
                         ? Container(
-                            margin: const EdgeInsets.only(bottom: 40),
                             height: 60,
                             width: double.infinity,
                             decoration: BoxDecoration(
@@ -155,7 +154,7 @@ class ExperienceSelectionScreen extends StatelessWidget {
                               ),
                               child: const Row(
                                 mainAxisSize: MainAxisSize.min,
-                                children: const [
+                                children: [
                                   Text(
                                     'Next',
                                     style: TextStyle(

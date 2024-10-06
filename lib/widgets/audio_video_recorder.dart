@@ -7,11 +7,12 @@ import 'package:hostpool/blocs/onboarding_event.dart';
 import 'package:hostpool/blocs/onboarding_bloc.dart';
 
 class AudioRecorderWidget extends StatefulWidget {
+  const AudioRecorderWidget({super.key});
   @override
-  _AudioRecorderWidgetState createState() => _AudioRecorderWidgetState();
+  AudioRecorderWidgetState createState() => AudioRecorderWidgetState();
 }
 
-class _AudioRecorderWidgetState extends State<AudioRecorderWidget> {
+class AudioRecorderWidgetState extends State<AudioRecorderWidget> {
   FlutterSoundRecorder? _recorder;
   bool _isRecording = false;
   final List<double> _waveformData = [];
@@ -121,13 +122,26 @@ class _AudioRecorderWidgetState extends State<AudioRecorderWidget> {
                 height: 0,
               ),
         Container(
-          color: Colors.amber,
-          width: 50,
-          height: 50,
-          child: IconButton(
-            icon: Icon(_isRecording ? Icons.stop : Icons.mic,
-                color: Colors.white),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8.0),
+              color: Colors.white.withOpacity(0.1)),
+          height: 65,
+          child: ElevatedButton(
             onPressed: _isRecording ? _stopRecording : _startRecording,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.transparent,
+              foregroundColor: Colors.grey,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+                side: const BorderSide(
+                  color: Colors.white24,
+                  width: 1.0,
+                ),
+              ),
+              elevation: 0,
+            ),
+            child: Icon(_isRecording ? Icons.stop : Icons.mic,
+                color: Colors.white),
           ),
         ),
       ],
@@ -152,32 +166,31 @@ class AudioWaveform extends StatelessWidget {
   }
 
   Widget _buildBar(double height) {
-    return SizedBox(
-      child: Row(
-        children: [
-          Container(
-            width: 4,
-            height: 50 * height,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(2),
-            ),
+    return Row(
+      children: [
+        Container(
+          width: 2.3,
+          height: 50 * height,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(2),
           ),
-          const SizedBox(
-            width: 5,
-          )
-        ],
-      ),
+        ),
+        const SizedBox(
+          width: 2,
+        )
+      ],
     );
   }
 }
 
 class VideoRecorderWidget extends StatefulWidget {
+  const VideoRecorderWidget({super.key});
   @override
-  _VideoRecorderWidgetState createState() => _VideoRecorderWidgetState();
+  VideoRecorderWidgetState createState() => VideoRecorderWidgetState();
 }
 
-class _VideoRecorderWidgetState extends State<VideoRecorderWidget> {
+class VideoRecorderWidgetState extends State<VideoRecorderWidget> {
   CameraController? _controller;
   bool _isRecording = false;
   bool _showCameraPreview = false;
@@ -225,45 +238,95 @@ class _VideoRecorderWidgetState extends State<VideoRecorderWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: Colors.grey[900],
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Column(
-        children: [
-          if (_showCameraPreview)
-            AspectRatio(
-              aspectRatio: 1 / 1,
-              child: CameraPreview(_controller!),
+    return Column(
+      children: [
+        if (_showCameraPreview)
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.grey[900],
+              borderRadius: BorderRadius.circular(8),
             ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                icon: Icon(_isRecording ? Icons.stop : Icons.videocam,
-                    color: Colors.white),
-                onPressed: () {
-                  if (_isRecording) {
-                    _stopVideoRecording();
-                  } else {
-                    setState(() {
-                      _showCameraPreview = true;
-                    });
-                    _startVideoRecording();
-                  }
-                },
-              ),
-              if (_isRecording)
-                TextButton(
-                  onPressed: _cancelVideoRecording,
-                  child: Text('Cancel', style: TextStyle(color: Colors.red)),
+            child: Column(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Recording Video...",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    AspectRatio(
+                      aspectRatio: 10 / 16,
+                      child: CameraPreview(_controller!),
+                    ),
+                  ],
                 ),
-            ],
+                const SizedBox(
+                  height: 40,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Icon(
+                      Icons.check_circle,
+                      color: Color(0XFF5951FF),
+                      size: 40,
+                    ),
+                    if (_isRecording)
+                      TextButton(
+                        onPressed: _cancelVideoRecording,
+                        child: const Text('Cancel',
+                            style: TextStyle(color: Colors.red)),
+                      ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ],
-      ),
+        const SizedBox(
+          height: 20,
+        ),
+        Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8.0),
+              color: Colors.white.withOpacity(0.1)),
+          height: 65,
+          child: ElevatedButton(
+            onPressed: () {
+              if (_isRecording) {
+                _stopVideoRecording();
+              } else {
+                setState(() {
+                  _showCameraPreview = true;
+                });
+                _startVideoRecording();
+              }
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.transparent,
+              foregroundColor: Colors.grey,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+                side: const BorderSide(
+                  color: Colors.white24,
+                  width: 1.0,
+                ),
+              ),
+              elevation: 0,
+            ),
+            child: Icon(_isRecording ? Icons.stop : Icons.videocam,
+                color: Colors.white),
+          ),
+        ),
+      ],
     );
   }
 }

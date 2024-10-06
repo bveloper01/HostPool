@@ -25,14 +25,6 @@ class AudioPlayerWidgetState extends State<AudioPlayerWidget> {
     _player = FlutterSoundPlayer();
     _player!.openPlayer().then((value) {
       _player!.setSubscriptionDuration(const Duration(milliseconds: 10));
-      _player!.startPlayer(
-        fromURI: widget.audioPath,
-        whenFinished: () {
-          setState(() {
-            _isPlaying = false;
-          });
-        },
-      );
     });
   }
 
@@ -63,27 +55,49 @@ class AudioPlayerWidgetState extends State<AudioPlayerWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.grey[900],
         borderRadius: BorderRadius.circular(8),
       ),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                "Audio Recording",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.delete_rounded,
+                  color: Color(0XFF5951FF),
+                  size: 28,
+                ),
+                onPressed: () {
+                  context.read<OnboardingBloc>().add(DeleteAudio());
+                },
+              )
+            ],
+          ),
+          const SizedBox(
+            height: 40,
+          ),
           IconButton(
-            icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow,
-                color: Colors.white),
+            icon: Icon(
+              _isPlaying
+                  ? Icons.pause_circle_filled_rounded
+                  : Icons.play_circle_fill_rounded,
+              color: const Color(0XFF5951FF),
+              size: 50,
+            ),
             onPressed: _playPause,
-          ),
-          Expanded(
-            child:
-                Text('Audio Recording', style: TextStyle(color: Colors.white)),
-          ),
-          IconButton(
-            icon: Icon(Icons.delete, color: Colors.white),
-            onPressed: () {
-              context.read<OnboardingBloc>().add(DeleteAudio());
-            },
           ),
         ],
       ),
@@ -145,30 +159,58 @@ class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.grey[900],
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                "Video Recording",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.delete_rounded,
+                  color: Color(0XFF5951FF),
+                  size: 28,
+                ),
+                onPressed: () {
+                  context.read<OnboardingBloc>().add(DeleteVideo());
+                },
+              )
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
           AspectRatio(
-            aspectRatio: 1 / 1,
+            aspectRatio: 10 / 16,
             child: VideoPlayer(_controller),
+          ),
+          const SizedBox(
+            height: 40,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow,
-                    color: Colors.white),
+                icon: Icon(
+                  _isPlaying
+                      ? Icons.pause_circle_filled_rounded
+                      : Icons.play_circle_fill_rounded,
+                  size: 50,
+                  color: const Color(0XFF5951FF),
+                ),
                 onPressed: _playPause,
-              ),
-              IconButton(
-                icon: Icon(Icons.delete, color: Colors.white),
-                onPressed: () {
-                  context.read<OnboardingBloc>().add(DeleteVideo());
-                },
               ),
             ],
           ),
