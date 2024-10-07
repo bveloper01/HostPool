@@ -1,16 +1,38 @@
-# hostpool
+<h1 align="center">Hostpool</h1>
+<h2 align="center">Hostpool is a digital platform designed to streamline the process of finding and connecting with event hosts. The app provides users with a wide range of options for event hosting, ensuring flexibility and convenience. It supports smooth audio and video recording, along with playback capabilities, while offering full CRUD operations for managing recorded media. The app also incorporates efficient permission handling for both iOS and Android, ensuring secure and controlled access to device features like the camera and microphone.</h2>
+<h3 align="left">Note: The app is fully capable of recording audio and video, but due to the ongoing screen recording, the in-app audio playback isn’t being captured. Don’t panic, though—the audio is recorded, as confirmed during the video playback at the end. </h3>
 
-A new Flutter project.
+<h3 align="center">Demo video: https://www.loom.com/share/287e0a78de254925876b5070ab1459f9?sid=698d25c0-4a92-4f6c-a517-dfc4b647ec5b</h3>
+<br>
+<h3 align="left">Features:</h3>
+<h3 align="left"> 
+  
+• Secure Environment Configuration: Hostpool utilizes `flutter_dotenv` to ensure secure management of environment variables, safeguarding sensitive data.
 
-## Getting Started
+• API Integration: The app employs `dio` for handling API requests with precision, enabling seamless communication with backend services.
 
-This project is a starting point for a Flutter application.
+• State Management: Leveraging `flutter_bloc` and `equatable`, Hostpool offers smooth and scalable state management, ensuring fluid screen transitions and responsive user interactions.
 
-A few resources to get you started if this is your first Flutter project:
+• Audio and Video Recording: With the integration of `flutter_sound` and `camera`, Hostpool enables high-quality audio and video recording capabilities.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+• Media Management: The app supports `CRUD` operations on media files, allowing users to create, read, update, and delete audio and video recordings with ease.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+• Permission Management: Effective permission management is implemented for both `Android` and `iOS` platforms, ensuring user privacy and data security.
+
+• Error Handling: Robust error handling mechanisms are in place, with `dio` providing retry logic and exception catching for reliable `API communication`.
+</h3> 
+<br>
+<br>
+<p align="left">
+<img src ="https://github.com/user-attachments/assets/ef774dd7-767b-4393-81af-9eed05b468de" />     <img src ="https://github.com/user-attachments/assets/bd7d36f2-32da-43e6-b527-8b411097b135" />  <img src ="https://github.com/user-attachments/assets/0ded5f7e-8cf9-40e1-b2d5-29672ebf8e83" /> 
+
+ <img src ="https://github.com/user-attachments/assets/57d69a49-78d3-49af-88fd-1b19e6f6470b" />     <img src ="https://github.com/user-attachments/assets/7cc96f95-f169-4120-a74d-971522dd8d66" />                <img src ="https://github.com/user-attachments/assets/05269836-4872-4434-a2d8-9fac706a9957" /> 
+</p>
+<br>
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+<a href="https://linkedin.com/in/priyanshu-amrit" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="priyanshu amrit" height="30" width="40" /></a>
+<a href="https://twitter.com/bveloper_" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="bveloper_" height="30" width="40" /></a>
+
+
+
