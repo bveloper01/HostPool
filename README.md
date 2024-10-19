@@ -1,12 +1,10 @@
 <h1 align="center">Hostpool</h1>
 <h2 align="center">Hostpool is a digital platform designed to streamline the process of finding and connecting with event hosts. The app provides users with a wide range of options for event hosting, ensuring flexibility and convenience. It supports smooth audio and video recording, along with playback capabilities, while offering full CRUD operations for managing recorded media. The app also incorporates efficient permission handling for both iOS and Android, ensuring secure and controlled access to device features like the camera and microphone.</h2>
-<h3 align="left">Note: The app is fully capable of recording audio and video, but due to the ongoing screen recording, the in-app audio playback isn’t being captured. Don’t panic, though—the audio is recorded, as confirmed during the video playback at the end. </h3>
 
-<h3 align="center">Demo video: https://www.loom.com/share/287e0a78de254925876b5070ab1459f9?sid=698d25c0-4a92-4f6c-a517-dfc4b647ec5b</h3>
-<br>
+
 <h3 align="left">Features:</h3>
 <h3 align="left"> 
-  
+
 • Secure Environment Configuration: Hostpool utilizes `flutter_dotenv` to ensure secure management of environment variables, safeguarding sensitive data.
 
 • API Integration: The app employs `dio` for handling API requests with precision, enabling seamless communication with backend services.
